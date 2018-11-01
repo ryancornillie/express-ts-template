@@ -1,5 +1,6 @@
 import * as express from 'express';
 import * as bodyParser from 'body-parser'; //used to parse the form data that you pass in the request
+import {Request, Response} from "express";
 
 class App {
 
@@ -8,6 +9,9 @@ class App {
     constructor() {
         this.app = express(); //run the express instance and store in app
         this.config();
+        this.app.get('/', (req: Request, res: Response) => {            
+            res.status(200).send("Hello World!");
+        })  
     }
 
     private config(): void {
